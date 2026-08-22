@@ -73,13 +73,49 @@ country_grouped, customer_risk_rating_was_missing
 
 ---
 
-## Vishnu Priya — Macro Stress-Testing
+## Vishnu Priya — Macro Overlay & Stress Testing
+
+This component adds a scenario-based macroeconomic stress-testing layer
+to the final calibrated credit-risk model.
+
+Important: this is sensitivity analysis, not econometric estimation.
+The borrower-level dataset does not contain unemployment or inflation
+variables, so macroeconomic effects were not statistically estimated.
 
 1. Load `FINAL_model.pkl` as shown above
 2. Do **not** retrain it — take the model as-is and re-score it by feeding in different macroeconomic-adjusted feature values under your Normal / Mild / Severe scenarios
 3. Use `X_test.csv` and `y_test.csv` as your baseline reference population, since that's the most realistic "current" snapshot (2023)
 4. Sanity-check your output: severe stress should always show a higher predicted default rate than baseline. If it doesn't, stop and flag it before proceeding
 5. Keep in mind the validation-to-test performance gap noted above when interpreting how much confidence to place in scenario-level shifts
+
+### Scenarios
+
+| Scenario | Unemployment | Inflation |
+|---|---:|---:|
+| Baseline | 0 pp | 0 pp |
+| Moderate Stress | +1 pp | +2 pp |
+| Severe Stress | +3 pp | +4 pp |
+
+### Results
+
+| Scenario | Mean Predicted PD |
+|---|---:|
+| Baseline | 11.1454% |
+| Moderate Stress | 13.0717% |
+| Severe Stress | 16.0540% |
+
+Moderate stress increases mean predicted PD by 1.93 percentage points
+(17.28% relative to baseline).
+
+Severe stress increases mean predicted PD by 4.91 percentage points
+(44.04% relative to baseline).
+
+Sanity checks passed:
+
+Baseline < Moderate Stress < Severe Stress
+
+The stress scenarios are externally imposed sensitivity assumptions and
+should not be interpreted as causal estimates or forecasts.
 
 ## Rubina — Segmentation, Explainability, Fairness
 
