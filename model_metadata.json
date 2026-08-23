@@ -1,0 +1,21 @@
+{
+  "random_seed": 42,
+  "model_type": "RandomForestClassifier (tuned)",
+  "train_period": "2018-2021",
+  "validation_period": "2022",
+  "test_period": "2023",
+  "test_roc_auc": 0.5643,
+  "test_pr_auc": 0.1521,
+  "test_brier_score": 0.0969,
+  "features": [
+    "issued_amount",
+    "initial_interest_rate",
+    "initial_loan_duration",
+    "loan_amount_band",
+    "loan_term_bucket",
+    "interest_rate_bucket",
+    "country_grouped",
+    "customer_risk_rating_was_missing"
+  ],
+  "calibration_applied": true
+}
