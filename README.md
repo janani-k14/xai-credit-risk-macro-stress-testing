@@ -297,23 +297,67 @@ The Streamlit application will open in the browser.
 
 ---
 
-## 📊 Results
+## 📊 Results & Key Findings
 
-The project provides three major analytical outputs:
+### Model Performance by Country
 
-### 1. Credit-Risk Prediction
+The country-level evaluation produced the following results:
 
-The machine learning model generates predictions for credit-risk outcomes.
+| Country     | Observations | ROC-AUC | Brier Score |
+| ----------- | -----------: | ------: | ----------: |
+| Estonia     |       16,599 |   0.617 |       0.081 |
+| Finland     |       58,014 |   0.536 |       0.100 |
+| Netherlands |        5,203 |   0.568 |       0.072 |
+| Spain       |        1,578 |   0.560 |       0.247 |
 
-### 2. Explainability
+Estonia has the highest ROC-AUC among the evaluated country groups, while the Netherlands has the lowest Brier score.
 
-SHAP analysis provides insight into the variables contributing to individual and overall model predictions.
+Spain has the highest Brier score, indicating comparatively weaker probabilistic calibration among the country groups evaluated.
 
-### 3. Macro Stress Testing
+### Explainable AI Findings
 
-Unemployment and inflation scenarios are used to investigate how adverse economic conditions can influence predicted credit risk.
+SHAP analysis identifies the following features as the most influential based on mean absolute SHAP value:
 
-The detailed results are available through the generated CSV files and the interactive dashboard.
+| Rank | Feature                                | Mean Absolute SHAP |
+| ---: | -------------------------------------- | -----------------: |
+|    1 | Country                                |            0.02075 |
+|    2 | Initial interest rate                  |            0.01894 |
+|    3 | Interest-rate bucket                   |            0.01642 |
+|    4 | Initial loan duration                  |            0.01283 |
+|    5 | Loan amount band                       |            0.01205 |
+|    6 | Issued amount                          |            0.01160 |
+|    7 | Loan-term bucket                       |            0.00771 |
+|    8 | Missing customer risk rating indicator |            0.00093 |
+
+Country is the most influential feature according to mean absolute SHAP value, followed by initial interest rate and interest-rate bucket.
+
+These values measure the magnitude of feature influence on the model predictions. They do not independently indicate whether a feature increases or decreases predicted risk.
+
+### Macroeconomic Stress Testing
+
+The baseline mean predicted probability of default (PD) is **11.15%**.
+
+Increasing interest-rate stress produces progressively higher predicted default probabilities:
+
+| Scenario               | Mean PD | Relative Change |
+| ---------------------- | ------: | --------------: |
+| Baseline               |  11.15% |           0.00% |
+| Mild Stress (+5%)      |  19.34% |         +73.49% |
+| Moderate Stress (+10%) |  21.39% |         +91.92% |
+| Severe Stress (+20%)   |  24.43% |        +119.17% |
+
+Under the severe +20% stress scenario, mean predicted PD increases from **11.15% to 24.43%**, representing a **119.17% relative increase** compared with the baseline.
+
+### Country-Level Stress Testing
+
+The impact of interest-rate stress differs substantially across country groups.
+
+* **Finland:** Shows the highest sensitivity, with a **152.46%** relative increase in mean PD under severe stress.
+* **Spain:** Has the highest baseline mean PD at approximately **28.88%** and reaches approximately **39.17%** under severe stress.
+* **Estonia:** Shows a **21.00%** relative increase under severe stress.
+* **Netherlands:** Shows the lowest sensitivity, with a **1.24%** relative increase under severe stress.
+
+These results demonstrate that macroeconomic stress does not affect all country groups uniformly.
 
 ---
 
