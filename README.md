@@ -182,22 +182,22 @@ This provides a way to assess the potential sensitivity of credit-risk predictio
 
 ## 🖥️ Interactive Dashboard
 
-The project includes a **Streamlit dashboard** for presenting the analytical results.
+The project includes an interactive Streamlit dashboard that brings together the model, explainability, stress-testing, and country-level analysis.
 
-The dashboard provides an interactive interface for exploring:
+The dashboard provides sections for:
 
-* Project overview
-* Model information
-* Credit-risk predictions
-* Model validation
-* Explainable AI results
-* Macro stress-testing results
-* Unemployment and inflation scenarios
+* **Project Overview** — summary of the analytical framework.
+* **Model Information** — trained model and associated metadata.
+* **Model Validation** — evaluation of model performance.
+* **Credit-Risk Predictions** — predicted probability of default and classification results.
+* **Explainable AI** — SHAP-based feature importance and individual explanations.
+* **Macro Stress Testing** — analysis of changing predicted risk under interest-rate stress.
+* **Country-Level Risk Analysis** — comparison of model performance and stress sensitivity across country groups.
 
-The dashboard is implemented in:
+Run the dashboard with:
 
-```text
-dashboard.py
+```bash
+streamlit run dashboard.py
 ```
 
 ---
