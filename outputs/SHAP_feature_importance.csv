@@ -1,0 +1,9 @@
+feature,mean_abs_shap
+country_grouped,0.020751067298144018
+initial_interest_rate,0.01894230203333105
+interest_rate_bucket,0.016420687922142522
+initial_loan_duration,0.012828269836452393
+loan_amount_band,0.012051568132282002
+issued_amount,0.011602141738028544
+loan_term_bucket,0.007713888393400756
+customer_risk_rating_was_missing,0.000929497182782434

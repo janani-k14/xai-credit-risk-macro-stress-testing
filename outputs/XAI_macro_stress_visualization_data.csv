@@ -1,0 +1,5 @@
+scenario,interest_rate_shock,mean_pd,median_pd,max_pd,absolute_pd_change,relative_pd_change_percent
+Baseline,0.0,0.111454,0.092939,0.496073,0.0,0.0
+Mild Stress (+5%),0.05,0.193364,0.133917,0.496073,0.08191,73.4917
+Moderate Stress (+10%),0.1,0.213899,0.22662,0.496073,0.102444,91.9162
+Severe Stress (+20%),0.2,0.244274,0.307368,0.496073,0.13282,119.1702
