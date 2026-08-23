@@ -361,6 +361,38 @@ These results demonstrate that macroeconomic stress does not affect all country 
 
 ---
 
+## 📈 Visualizations
+
+### Explainable AI
+
+The project uses SHAP-based visualizations to understand feature importance and individual model predictions.
+
+![SHAP Global Feature Importance](figures/SHAP_global_feature_importance.png)
+
+![SHAP Summary Plot](figures/SHAP_summary_plot.png)
+
+![Individual XAI Explanation](figures/XAI_individual_explanation.png)
+
+### Macroeconomic Stress Testing
+
+The following visualizations illustrate changes in predicted probability of default under different interest-rate stress scenarios.
+
+![Macro Stress Probability of Default](figures/macro_stress_pd.png)
+
+![Macro Stress Absolute Change](figures/macro_stress_absolute_change.png)
+
+![Macro Stress Relative Change](figures/macro_stress_relative_change.png)
+
+### Country-Level Analysis
+
+Country-level visualizations provide additional insight into model performance and risk behaviour across country groups.
+
+![Country ROC-AUC](figures/country_roc_auc.png)
+
+![Country Actual vs Predicted PD](figures/country_actual_vs_predicted_pd.png)
+
+![Country Calibration Gap](figures/country_calibration_gap.png)
+
 ## 🔐 Model Interpretability
 
 A major objective of the project is to move beyond a traditional "black-box" prediction approach.
